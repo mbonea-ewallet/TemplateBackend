@@ -10,7 +10,7 @@ class editPost(BaseModel):
 
 
 class createPost(BaseModel):
-    pageId:Optional[int]
+    pageId:int
     content: Optional[dict]
     recommendations: Optional[dict]
 
