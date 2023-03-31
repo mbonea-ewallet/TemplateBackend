@@ -13,4 +13,5 @@ typesystem==0.3.1
 Werkzeug==2.2.2
 passlib                # for password hashing
 pydantic[email]
+uvicorn==0.21.1
 python-multipart

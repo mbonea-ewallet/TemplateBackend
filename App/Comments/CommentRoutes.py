@@ -16,7 +16,7 @@ comment_router = APIRouter(tags=["Comments"])
 @comment_router.post("/comment/create")
 async def create_comment(comment: createComment):
     user,_post = await get_user_and_post(comment)
-    db_data = await Comment.objects.create(user=user, content=comment.content,post=_post)
+    data = await Comment.objects.create(user=user, content=comment.content,post=_post)
     return {"code": 200, "message": "success", "payload": data.__dict__}
 
 
