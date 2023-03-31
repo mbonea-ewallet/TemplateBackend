@@ -1,37 +1,30 @@
-version: '3.8'
+version: '3'
+
 services:
-  es:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.1.0
-    container_name: es
-    volumes:
-      - elasticsearch-data:/usr/share/elasticsearch/data
-    ports:
-      - 9200:9200
-    restart: always
+  db:
+    image: postgres
     environment:
-      - xpack.security.enabled=true
-      - discovery.type=single-node
-  # kibana:
-  #   depends_on:
-  #     - elasticsearch
-  #   image: docker.elastic.co/kibana/kibana:8.1.0
-  #   container_name: kibana
-  #   volumes:
-  #     - kibana-data:/usr/share/kibana/data
-  #   ports:
-  #    - 5601:5601
-  #   restart: always
-  #   environment:
-  #     - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-  fastapi:
-    build: ./
-    depends_on:
-      - es
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
     ports:
-      - 8000:8000
-    restart: always
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/mydatabase
+    command: uvicorn App.app:app --host 0.0.0.0 --port 8000
+
+
+
 volumes:
-  elasticsearch-data:
-    driver: local
-  kibana-data:
-    driver: local
+  postgres_data:
