@@ -15,6 +15,5 @@ class PostLike(orm.Model):
         "id": orm.Integer(primary_key=True),
         "user": orm.ForeignKey(User, on_delete=orm.CASCADE),
         "post": orm.ForeignKey(Post, on_delete=orm.CASCADE),
-        "createdAt": orm.DateTime(index=True, default=datetime.datetime.now)
+        "createdAt": orm.DateTime(index=True, default=datetime.datetime.now),
     }
-

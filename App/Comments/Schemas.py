@@ -6,19 +6,21 @@ from datetime import date, datetime, time, timedelta
 class createComment(BaseModel):
     userId: int
     content: str
-    postId:int
+    postId: int
 
 
 class editComment(BaseModel):
-    id:int
+    id: int
     userId: int
     content: str
-    postId:int
+    postId: int
+
 
 class deleteComment(BaseModel):
-    id:int
+    id: int
     userId: int
-    postId:int
+    postId: int
+
 
 class allComments(BaseModel):
     userId: int

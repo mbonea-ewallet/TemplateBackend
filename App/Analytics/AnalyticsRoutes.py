@@ -5,6 +5,3 @@ from App.Users.Model import User
 from App.Post.Model import Post
 
 analytics_router = APIRouter(tags=["Analytics"])
-
-
-

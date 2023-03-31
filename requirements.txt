@@ -14,4 +14,5 @@ Werkzeug==2.2.2
 passlib                # for password hashing
 pydantic[email]
 uvicorn==0.21.1
+gunicorn
 python-multipart

@@ -7,6 +7,7 @@ from App.modelInit import database, models
 from App.Users.Model import User
 from App.Post.Model import Post
 
+
 class CommentLike(orm.Model):
     tablename = "commentlikes"
     registry = models

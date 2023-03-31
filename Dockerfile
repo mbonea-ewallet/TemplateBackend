@@ -3,5 +3,5 @@ WORKDIR /usr/src/nginx
 COPY . .
 
 RUN python3 -m pip install -r requirements.txt 
-CMD  uvicorn App.app:app --host 0.0.0.0
+CMD  gunicorn main:app --workers 4   --host 0.0.0.0
 EXPOSE 8000

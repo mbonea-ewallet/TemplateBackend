@@ -6,6 +6,7 @@ from App.Post.Model import Post
 
 commentLikes_router = APIRouter(tags=["CommentLikes"])
 
-@commentLikes_router.get('/likes/comments/add')
+
+@commentLikes_router.get("/likes/comments/add")
 async def add_commentLike():
     pass

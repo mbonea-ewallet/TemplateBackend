@@ -12,7 +12,7 @@ class Post(orm.Model):
     registry = models
     fields = {
         "id": orm.Integer(primary_key=True),
-        "pageId": orm.Integer(index=True,default=0),
+        "pageId": orm.Integer(index=True, default=0),
         "content": orm.JSON(),
         "recommendations": orm.JSON(allow_null=True),
         "createdAt": orm.DateTime(index=True, default=datetime.datetime.now),

@@ -5,15 +5,14 @@ from datetime import date, datetime, time, timedelta
 
 class editPost(BaseModel):
     id: Optional[int]
-    content:Optional[dict]
-    recommendations:Optional[dict]
+    content: Optional[dict]
+    recommendations: Optional[dict]
 
 
 class createPost(BaseModel):
-    content:Optional[dict]
-    recommendations:Optional[dict]
+    content: Optional[dict]
+    recommendations: Optional[dict]
+
 
 class getPost(BaseModel):
     id: Optional[int]
-
-    

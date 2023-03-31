@@ -2,9 +2,9 @@ from fastapi import APIRouter, status
 from .Schemas import BaseRequest
 from .Model import User
 from sqlalchemy import and_
-from fastapi.security import OAuth2PasswordBearer,OAuth2PasswordRequestForm 
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
-oauth_scheme=OAuth2PasswordBearer(tokenUrl='/user/login')
+oauth_scheme = OAuth2PasswordBearer(tokenUrl="/user/login")
 user_router = APIRouter(tags=["User"])
 
 

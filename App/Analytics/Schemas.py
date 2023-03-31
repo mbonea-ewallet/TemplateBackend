@@ -11,5 +11,3 @@ class BaseRequest(BaseModel):
 
 class editRequest(BaseRequest):
     updatedAt: datetime = datetime.now()
-
-    
