@@ -22,6 +22,7 @@ async def register_user(user: BaseRequest):
 @user_router.post("/user/login")
 async def register_user(user: BaseRequest):
     db_user = await User.objects.filter(email=user.email).first()
-    if db_user.verify_password(user.password):
-        return {"code": 200, "message": "success", "payload": db_user.__dict__}
+    if db_user:
+        if  db_user.verify_password(user.password):
+            return {"code": 200, "message": "success", "payload": db_user.__dict__}
     return {"code": 401, "message": "Invalid Credentials", "payload": None}
