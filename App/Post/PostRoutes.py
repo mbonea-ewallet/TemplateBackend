@@ -23,3 +23,8 @@ async def create_post(post: editPost):
 async def create_post(post: getPost):
     data = await Post.objects.get(id=post.id)
     return {"code": 200, "message": "success", "payload": data.__dict__}
+
+@post_router.post("/post/delete_all")
+async def create_post():
+    data = await Post.objects.delete()
+    return {"code": 200, "message": "success", "payload": data.__dict__}
